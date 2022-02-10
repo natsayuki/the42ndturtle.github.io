@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <window title="test1"></window>
-      <window title="test2">
+      <window title="terminal" v-for="index in numTerms" :key="index">
         <term></term>
       </window>
 
