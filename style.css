@@ -1,3 +1,7 @@
+:root{
+  --main-window-color: lightgrey;
+}
+
 *{
   font-family: monospace;
 }
@@ -10,7 +14,7 @@
 }
 
 .window{
-  background-color: lightgrey;
+  background-color: var(--main-window-color);
   position: fixed;
   filter: drop-shadow(5px 5px 8px darkgrey);
   border-radius: 5px;
@@ -104,10 +108,14 @@
   color: white;
 }
 
+.term-text-dir{
+  color: aqua;
+}
+
 .term-username{
   color: limegreen;
 }
 
-.term-username, .term-text{
+.term-username, .term-text, .term-text-dir{
   font-size: 18px;
 }
