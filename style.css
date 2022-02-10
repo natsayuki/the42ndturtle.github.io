@@ -1,0 +1,14 @@
+.window{
+  background-color: lightgrey;
+  width: 600px;
+  height: 400px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.window-head{
+  width: 100%;
+  height: 20px;
+  background-color: grey;
+}
