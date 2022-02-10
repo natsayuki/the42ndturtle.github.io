@@ -17,7 +17,6 @@ Vue.component('window', {
       this.$data.moving = true;
       this.$data.offsetX = e.offsetX;
       this.$data.offsetY = e.offsetY;
-      console.log(e.offsetX);
     },
     stopMoving(){
       this.$data.moving = false;
@@ -39,6 +38,10 @@ Vue.component('window', {
       });
       this.$el.classList.add('window-selected');
     },
+    close(){
+      this.$destroy();
+      this.$el.parentNode.removeChild(this.$el);
+    },
   },
   mounted() {
     const self = this;
@@ -57,14 +60,17 @@ Vue.component('window', {
     });
   },
   template: `
-    <div @click="selectWindow" :class="{window: true, 'window-fullscreen': fullscreen, 'window-fullscreen-transition': transitioning}" :style="{left: x + 'px', top: y + 'px'}">
+    <div @mousedown="selectWindow" :class="{window: true, 'window-fullscreen': fullscreen, 'window-fullscreen-transition': transitioning}" :style="{left: x + 'px', top: y + 'px'}">
       <div class="window-head" @mousedown="startMoving">
         <span>{{title}}</span>
       </div>
       <div class="window-button-wrapper">
-        <div class="window-button" @click="toggleFS"></div>
+        <div class="window-button" @click="toggleFS" style="background-color: blue"></div>
+        <div class="window-button" @click="close" style="background-color: red"></div>
       </div>
-      <div class="window-body">{{body}}</div>
+      <div class="window-body" :class="{'window-fullscreen': fullscreen, 'window-fullscreen-transition': transitioning}">
+        <slot></slot>
+      </div>
     </div>
   `
 });
