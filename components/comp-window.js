@@ -4,10 +4,8 @@ Vue.component('window', {
     return {
       moving: false,
       eventListener: null,
-      prevX: 0,
-      prevY: 0,
-      currX: 0,
-      currY: 0,
+      offsetX: 0,
+      offsetY: 0,
       x: 0,
       y: 0,
     }
@@ -15,6 +13,9 @@ Vue.component('window', {
   methods: {
     startMoving(e){
       this.$data.moving = true;
+      this.$data.offsetX = e.offsetX;
+      this.$data.offsetY = e.offsetY;
+      console.log(e.offsetX);
     },
     stopMoving(){
       this.$data.moving = false;
@@ -24,13 +25,8 @@ Vue.component('window', {
     const self = this;
     window.addEventListener("mousemove", e => {
       if (this.$data.moving) {
-        this.$data.prevX = this.$data.currX;
-        this.$data.prevY = this.$data.currY;
-        const rect = e.target.getBoundingClientRect()
-        this.$data.currX = e.pageX;
-        this.$data.currY = e.pageY;
-        this.$data.x += this.$data.currX - this.$data.prevX;
-        this.$data.y += this.$data.currY - this.$data.prevY;
+        this.$data.x = e.pageX - this.$data.offsetX;
+        this.$data.y = e.pageY - this.$data.offsetY;
 
         if(this.$data.y < 0) this.$data.y = 0;
         if(this.$data.x < 0) this.$data.x = 0;
@@ -43,7 +39,7 @@ Vue.component('window', {
   },
   template: `
     <div class="window" :style="{left: x + 'px', top: y + 'px'}">
-      <div class="window-head" @mousedown="startMoving()" >
+      <div class="window-head" @mousedown="startMoving" >
         <span>{{title}}</span>
       </div>
       <div class="window-body">{{body}}</div>
