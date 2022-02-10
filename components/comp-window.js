@@ -2,41 +2,50 @@ Vue.component('window', {
   props: ['title', 'body'],
   data: function(){
     return {
-      moving: null,
+      moving: false,
       eventListener: null,
       prevX: 0,
       prevY: 0,
+      currX: 0,
+      currY: 0,
       x: 0,
       y: 0,
     }
   },
   methods: {
-    startMoving(){
-      const self = this;
-      this.$data.moving = setInterval(function(){
-        self.$data.eventListener = window.addEventListener("mousemove", e => {
-          console.log(e.pageX);
-          
-        });
-      }, 1000);
-
+    startMoving(e){
+      this.$data.moving = true;
     },
     stopMoving(){
-      clearInterval(this.$data.moving);
-      window.removeEventListener("mousemove", this.$data.eventListener);
-      console.log("asdf");
+      this.$data.moving = false;
     },
   },
   mounted() {
-    // this.moving = false;
-    // const moving = this.moving
-    // setInterval(function(){
-    //   console.log(moving);
-    // }, 1000);
+    const self = this;
+    window.addEventListener("mousemove", e => {
+      if (this.$data.moving) {
+        this.$data.prevX = this.$data.currX;
+        this.$data.prevY = this.$data.currY;
+        const rect = e.target.getBoundingClientRect()
+        this.$data.currX = e.pageX;
+        this.$data.currY = e.pageY;
+        this.$data.x += this.$data.currX - this.$data.prevX;
+        this.$data.y += this.$data.currY - this.$data.prevY;
+
+        if(this.$data.y < 0) this.$data.y = 0;
+        if(this.$data.x < 0) this.$data.x = 0;
+      }
+    });
+
+    window.addEventListener("mouseup", e => {
+      this.$data.moving = false;
+    });
   },
   template: `
-    <div class="window">
-      <div class="window-head" @mousedown="startMoving()" @mouseup="stopMoving()">{{title}}</div>
+    <div class="window" :style="{left: x + 'px', top: y + 'px'}">
+      <div class="window-head" @mousedown="startMoving()" >
+        <span>{{title}}</span>
+      </div>
       <div class="window-body">{{body}}</div>
     </div>
   `
