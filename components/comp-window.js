@@ -33,6 +33,12 @@ Vue.component('window', {
         }, 200);
       }
     },
+    selectWindow(){
+      document.querySelectorAll('.window-selected').forEach(w => {
+        w.classList.remove('window-selected');
+      });
+      this.$el.classList.add('window-selected');
+    },
   },
   mounted() {
     const self = this;
@@ -51,7 +57,7 @@ Vue.component('window', {
     });
   },
   template: `
-    <div :class="{window: true, 'window-fullscreen': fullscreen, 'window-fullscreen-transition': transitioning}" :style="{left: x + 'px', top: y + 'px'}">
+    <div @click="selectWindow" :class="{window: true, 'window-fullscreen': fullscreen, 'window-fullscreen-transition': transitioning}" :style="{left: x + 'px', top: y + 'px'}">
       <div class="window-head" @mousedown="startMoving">
         <span>{{title}}</span>
       </div>
