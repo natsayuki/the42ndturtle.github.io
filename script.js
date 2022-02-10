@@ -18,7 +18,7 @@ function createTerminal(){
 }
 
 document.addEventListener('keydown', e => {
-  if(e.key == "Tab") createTerminal();
+  if(e.key == "Control") createTerminal();
 });
 
 const vm = new Vue({

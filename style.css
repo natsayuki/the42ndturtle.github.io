@@ -112,10 +112,14 @@
   color: aqua;
 }
 
+.term-text-project{
+  color: gold;
+}
+
 .term-username{
   color: limegreen;
 }
 
-.term-username, .term-text, .term-text-dir{
+.term-username, .term-text, .term-text-dir, .term-text-project{
   font-size: 18px;
 }
