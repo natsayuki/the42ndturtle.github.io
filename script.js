@@ -1,7 +1,11 @@
+const projects = {
+
+}
 
 
 const data = {
-  message: "ur nan"
+  message: "ur nan",
+  projects: projects,
 }
 
 const methods = {

@@ -8,6 +8,8 @@ Vue.component('window', {
       offsetY: 0,
       x: 0,
       y: 0,
+      fullscreen: false,
+      transitioning: false,
     }
   },
   methods: {
@@ -19,6 +21,17 @@ Vue.component('window', {
     },
     stopMoving(){
       this.$data.moving = false;
+    },
+    toggleFS(){
+      this.$data.fullscreen = !this.$data.fullscreen;
+      if(!this.$data.fullscreen) {
+        this.$data.transitioning = true;
+
+        const self = this;
+        setTimeout(function(){
+          self.$data.transitioning = false;
+        }, 200);
+      }
     },
   },
   mounted() {
@@ -38,9 +51,12 @@ Vue.component('window', {
     });
   },
   template: `
-    <div class="window" :style="{left: x + 'px', top: y + 'px'}">
-      <div class="window-head" @mousedown="startMoving" >
+    <div :class="{window: true, 'window-fullscreen': fullscreen, 'window-fullscreen-transition': transitioning}" :style="{left: x + 'px', top: y + 'px'}">
+      <div class="window-head" @mousedown="startMoving">
         <span>{{title}}</span>
+      </div>
+      <div class="window-button-wrapper">
+        <div class="window-button" @click="toggleFS"></div>
       </div>
       <div class="window-body">{{body}}</div>
     </div>
