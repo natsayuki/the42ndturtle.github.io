@@ -1,13 +1,11 @@
-const projects = {
-
-}
-
-
 const data = {
   message: "ur nan",
-  projects: projects,
   numTerms: 0,
   pages: [],
+  mobile: false,
+  interactive: true,
+  projects: fs[`~`].projects,
+  window: window,
 }
 
 const methods = {
@@ -16,13 +14,18 @@ const methods = {
   },
   createGithubWindow(link){
     data.github.push(link)
-  }
+  },
+  switchView(){
+    data.interactive = !data.interactive;
+  },
 }
 
 
 document.addEventListener('keydown', e => {
   if(e.key == "Escape") methods.createTerminal();
 });
+
+Vue.use(VueMaterial.default);
 
 const vm = new Vue({
   el: '#app',

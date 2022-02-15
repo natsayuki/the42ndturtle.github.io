@@ -136,3 +136,15 @@ iframe{
   padding: none;
   margin: none;
 }
+
+#view-button{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+#alternate-head-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
