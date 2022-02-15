@@ -39,7 +39,7 @@ const vm = new Vue({
   methods: methods,
 });
 
-if(window.movileCheck()){
+if(window.mobileCheck()){
   data.mobile = true;
   data.interactive = false;
   console.log('mobile check live');
