@@ -42,4 +42,5 @@ const vm = new Vue({
 if(window.movileCheck()){
   data.mobile = true;
   data.interactive = false;
+  console.log('mobile check live');
 }
