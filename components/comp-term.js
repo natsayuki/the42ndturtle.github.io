@@ -28,13 +28,14 @@ Vue.component('term', {
             type: 'project',
             description: 'an unfinished idle game that takes place in space',
             content: 'idle game content',
-            github: 'https://github.com/the42ndturtle/idlegame'
+            github: 'https://github.com/the42ndturtle/idlegame',
+            link: 'https://idletestgame.herokuapp.com',
           },
           'multiplayer-snake': {
             type: 'project',
             description: 'a simple local multiplayer snake game',
             content: 'multiplayer snake content',
-            github: 'https://github.com/the42ndturtle/snake'
+            github: 'https://github.com/the42ndturtle/snake',
           },
           'typing-game': {
             type: 'project',
@@ -46,7 +47,7 @@ Vue.component('term', {
             type: 'project',
             description: 'a simulation that displays the ratio of random points in a circle inscribed in a square is close to pi',
             content: 'needle sim content',
-            github: "https://github.com/the42ndturtle/needle"
+            github: "https://github.com/the42ndturtle/needle",
           },
           raycaster: {
             type: 'project',
@@ -192,11 +193,26 @@ Vue.component('term', {
         let done = false;
         Object.keys(root).forEach(item => {
           if(root[item].type == 'project' && item == command[1]){
-            window.open(root[item].github, "_blank");
+            console.log(this.$parent);
+            this.$parent.$parent.createGithubWindow(root[item].github)
+            this.print(`<a href="${root[item].github}">{{root[item].github}}</a>`);
             done = true;
           }
         });
         if(!done) this.print(`unrecognized project ${command[1]}`);
+      }
+      else if(command[0] == 'run'){
+        const root = eval(`this.$data['${this.$data.path.join("']['")}']`);
+        let done = false;
+        Object.keys(root).forEach(item => {
+          if(root[item].type == 'project' && item == command[1] && root[item].link){
+            this.$parent.$parent.pages.push(root[item].link)
+            console.log(root[item].link);
+            this.print(`running ${command[1]}`);
+            done = true;
+          }
+        });
+        if(!done) this.print(`unrecognized legible file ${command[1]}`);
       }
       else{
         this.print(`unrecognized command ${command[0]}`);
@@ -233,7 +249,7 @@ Vue.component('term', {
       w.innerHTML += `
       <div class="term-username">madeline@madeline</span><span class="term-text">:${this.$data.path.join('/')}$ ${this.$data.text}</div>
       `
-    }
+    },
   },
   mounted() {
     document.addEventListener('keydown', e => {

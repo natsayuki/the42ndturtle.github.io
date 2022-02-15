@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <h1>press <u>control</u> to open up a new terminal</h1>
+      <h1>press <u>escape</u> to open up a new terminal</h1>
       <h1>run <u>ls</u> to view projects</h1>
       <h1>run <u>cd</u> to change into a blue directory</h1>
       <h1>run <u>cat</u> on a white text file or gold project to see the contents</h1>
@@ -15,7 +15,9 @@
       <window title="terminal" v-for="index in numTerms" :key="index">
         <term></term>
       </window>
-
+      <window v-for="(page, index) in pages" :key="index">
+        <iframe :src="page"></iframe>
+      </window>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>

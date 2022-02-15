@@ -7,18 +7,21 @@ const data = {
   message: "ur nan",
   projects: projects,
   numTerms: 0,
+  pages: [],
 }
 
 const methods = {
-
+  createTerminal(){
+    data.numTerms++;
+  },
+  createGithubWindow(link){
+    data.github.push(link)
+  }
 }
 
-function createTerminal(){
-  data.numTerms++;
-}
 
 document.addEventListener('keydown', e => {
-  if(e.key == "Control") createTerminal();
+  if(e.key == "Escape") methods.createTerminal();
 });
 
 const vm = new Vue({

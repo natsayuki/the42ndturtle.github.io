@@ -37,7 +37,7 @@
   min-width: 150px;
   min-height: 100px;
   resize: both;
-  overflow: auto;
+  overflow: hidden;
   position: relative;
 }
 
@@ -94,7 +94,6 @@
   align-items: baseline;
   flex-direction: column;
   background-color: darkmagenta;
-  overflow: auto;
 }
 
 .term-wrapper:{
@@ -128,4 +127,12 @@
 
 .term-username, .term-text, .term-text-dir, .term-text-project{
   font-size: 18px;
+}
+
+iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: none;
+  margin: none;
 }
