@@ -121,11 +121,15 @@
   color: gold;
 }
 
+.term-text-run{
+  color: blue;
+}
+
 .term-username{
   color: limegreen;
 }
 
-.term-username, .term-text, .term-text-dir, .term-text-project{
+.term-username, .term-text, .term-text-dir, .term-text-project, .term-text-run{
   font-size: 18px;
 }
 

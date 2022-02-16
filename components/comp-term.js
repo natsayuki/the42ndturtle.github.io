@@ -17,8 +17,9 @@ Vue.component('term', {
         const root = eval(`this.$data['${this.$data.path.join("']['")}']`);
         Object.keys(root).forEach(item => {
           if(root[item].type == 'dir') this.printDir(item)
-          if(root[item].type == 'project') this.printProject(item)
-          if(root[item].type == 'file') this.printFile(item);
+          else if(root[item].link && root[item].type == 'project') this.printRun(item)
+          else if(root[item].type == 'project') this.printProject(item)
+          else if(root[item].type == 'file') this.printFile(item);
         });
       }
       else if(command[0] == 'cd'){
@@ -97,6 +98,12 @@ Vue.component('term', {
       const w = this.$el.querySelector('.term-printed-wrapper');
       w.innerHTML += `
       <span class="term-text-project">${text}</span>
+      `
+    },
+    printRun(text){
+      const w = this.$el.querySelector('.term-printed-wrapper');
+      w.innerHTML += `
+      <span class="term-text-run">${text}</span>
       `
     },
     printCommand(){
