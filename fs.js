@@ -5,7 +5,25 @@ const fs = {
       TazerChess: {
         type: 'project',
         description: "A project inspired by Michael Reeves. Play chess on chess.com, but you get electrocuted every time you blunder",
-        content: "brrrr",
+        content: `
+        The aim of this project was to help me improve at chess. I am too lazy to actually learn how to play,
+        so I decided to try learning through negative reinforcement.
+
+        This project consists of three main parts: the browser plug-in, the server, and the electrocution box.
+        The browser plug is made for FireFox, and scrapes any active chess game in chess.com for the PGN.
+        PGN stands for portable game notation, and is used to transcribe chess games into a legible shorthands.
+        The PGN is sent from the browser to a server running on the same computer.
+        This server launches a child Python script who's only purpose is to serve as an interface between the server and the Stockfish chess engine.
+        Stockfish returns a number that is a summed up evaluation of the game. The more positive the number, the more white is favored in the current board state,
+        the more negative the number, the more black is favored in the current board state.
+        These evaluations are tracked and if a large enough change in lead happens depending on who is more favored at the time, it is
+        counted as a blunder by the server. At this point, the electrocution box is called.
+
+        The electrocution box has a 3D printed housing and contains a RaspberryPi, mobile battery bank, relay board, and TENS unit.
+        The RaspberryPi runs a simple Node.JS server which is listening to see if its IP is called.
+        If so, the Pi opens the relays for a set amount of time, allowing the TENS unit to electrocute the player.
+
+        `,
         github: "https://github.com/the42ndturtle/TazerChess",
       },
       PatkerPlot: {
@@ -13,6 +31,7 @@ const fs = {
         description: 'A simple UI for chart.js',
         content: 'patker plot content',
         github: "https://github.com/the42ndturtle/patkerplot",
+        link: 'https://patkerplot.herokuapp.com'
       },
       nickisnotnuzlocke: {
         type: 'project',
@@ -32,18 +51,21 @@ const fs = {
         description: 'a simple local multiplayer snake game',
         content: 'multiplayer snake content',
         github: 'https://github.com/the42ndturtle/snake',
+        link: 'https://multisnakegame.herokuapp.com',
       },
       'typing-game': {
         type: 'project',
         description: 'a typing game with a twist! all the prompts are generated from my friends\'s high school essays which contain many spelling errors',
         content: 'typing game content',
         github: "https://github.com/the42ndturtle/learntotypewithpatker",
+        link: 'https://learntotypewithpatker.herokuapp.com'
       },
       needle: {
         type: 'project',
         description: 'a simulation that displays the ratio of random points in a circle inscribed in a square is close to pi',
         content: 'needle sim content',
         github: "https://github.com/the42ndturtle/needle",
+        link: 'https://needlepi.herokuapp.com'
       },
       raycaster: {
         type: 'project',
@@ -55,19 +77,22 @@ const fs = {
         type: 'project',
         description: 'a multiplayer game where players take turns drawing frames of one final animation',
         content: 'frame by frame content',
-        github: "https://github.com/the42ndturtle/framebyframe"
+        github: "https://github.com/the42ndturtle/framebyframe",
+        link: 'https://fbfgame.herokuapp.com'
       },
       vnengine: {
         type: 'project',
         description: 'a rudimentary visual novel game engine for web a mobile platforms',
         content: 'patker story content',
-        github: "https://github.com/the42ndturtle/patkerstory"
+        github: "https://github.com/the42ndturtle/patkerstory",
+        link: "https://patkerstory.herokuapp.com"
       },
       rpg: {
         type: 'project',
         description: 'a simple rpg demonstration for a class',
         content: "patker quest content",
-        github: "https://github.com/the42ndturtle/PatkerQuest64"
+        github: "https://github.com/the42ndturtle/PatkerQuest64",
+        link: "https://PatkerQuest64.herokuapp.com"
       },
       studyapp: {
         type: 'project',
@@ -79,13 +104,15 @@ const fs = {
         type: 'project',
         description: 'a bad version of Tetris with a (hardly functional) lobby and multiplayer system',
         content: 'patker blocks content',
-        github: "https://github.com/the42ndturtle/tetris"
+        github: "https://github.com/the42ndturtle/tetris",
+        link: "https://patkerblocks.herokuapp.com"
       },
       life: {
         type: 'project',
         description: 'a recreation of "Conway\'s Game of Life" simulation',
         content: "life content",
-        github: "https://github.com/the42ndturtle/life"
+        github: "https://github.com/the42ndturtle/life",
+        link: "https://lifesimapp.herokuapp.com",
       },
       "PTC": {
         type: 'project',
