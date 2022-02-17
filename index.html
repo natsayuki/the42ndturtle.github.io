@@ -23,6 +23,7 @@
           <iframe :src="page"></iframe>
         </window>
       </div>
+
       <div id="alternate" v-else>
         <div id="alternate-head-wrapper">
           <h1>projects</h1>
@@ -31,13 +32,16 @@
             interactive view
           </md-button>
         </div>
+
         <md-card v-for="(project, name) in projects" v-if="projects[name].type">
           <md-card-header>
             <div class="md-title">{{name}}</div>
           </md-card-header>
+
           <md-card-content>
             {{project.description}}
           </md-card-content>
+
           <md-card-expand>
             <md-card-actions>
               <div>
@@ -51,6 +55,7 @@
                 </md-button>
               </md-card-expand-trigger>
             </md-card-actions>
+
             <md-card-expand-content>
               <md-card-content>{{project.content}}</md-card-content>
             </md-card-expand-content>

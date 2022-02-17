@@ -29,20 +29,39 @@ const fs = {
       PatkerPlot: {
         type: 'project',
         description: 'A simple UI for chart.js',
-        content: 'patker plot content',
+        content: `
+        This project was made for my statics class. My teacher wanted a website that could be used to make
+        transparent charts and graphs for presentations. Using char.js for the actual charts, I used
+        vue.js to make a simple UI that allowed for the creation and editing of plots.
+        The style as well as data can be changed and edited. The final plot can be
+        downloaded as a PNG.
+        `,
         github: "https://github.com/the42ndturtle/patkerplot",
         link: 'https://patkerplot.herokuapp.com'
       },
       nickisnotnuzlocke: {
         type: 'project',
         description: 'A project that allows for twitch chat to interact with Pokemon GBA games',
-        content: 'nickisnotnuzlocke content',
+        content: `
+        This project was my first time using Lua outside of the Computer Craft Minecraft mod. While it proved a bit difficult
+        to set up at first, it came very intuitively once I got started. The aim of this project was to allow Twitch chat to interact
+        and influence Pokemon Fire Red and Leaf Green, however it also works with the other Pokemon Gameboy Advance games.
+        This project was intended for the youtubers Nickisnotgreen's and Jarvis Johnson's Fire Red and Leaf Green
+        soulbonded nuzlocke streams. The server can connect to any amount of Twitch chats at once and feed commands
+        to the respective clients. The Lua client runs in a GBA emulator and queries the server to get the most
+        recent Twitch chats. These chats can be parsed and used by the client to execute different things from
+        changing a Pokemon's name, to poisoning, burning, or adding another status affect.
+        The Lua script has to edit the bytes in the GBA's RAM and different memory offsets for different things
+        were found via memory maps available on the internet.
+        `,
         github: 'https://github.com/the42ndturtle/nickisnotnuzlocke'
       },
       'idle-game': {
         type: 'project',
         description: 'an unfinished idle game that takes place in space',
-        content: 'idle game content',
+        content: `
+        
+        `,
         github: 'https://github.com/the42ndturtle/idlegame',
         link: 'https://idletestgame.herokuapp.com',
       },
