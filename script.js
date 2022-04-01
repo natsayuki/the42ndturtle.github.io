@@ -9,7 +9,7 @@ const data = {
   numTerms: 0,
   pages: [],
   mobile: false,
-  interactive: true,
+  interactive: false,
   projects: fs[`~`].projects,
   window: window,
 }
