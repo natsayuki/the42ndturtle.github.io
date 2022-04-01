@@ -139,7 +139,7 @@ const fs = {
         type: 'project',
         description: 'a bad version of Tetris with a (hardly functional) lobby and multiplayer system',
         content: `
-        My first project using web sockets. A bare bones Tetris clone with an almost non-functional multiplayer system. 
+        My first project using web sockets. A bare bones Tetris clone with an almost non-functional multiplayer system.
         `,
         github: "https://github.com/the42ndturtle/tetris",
         link: "https://patkerblocks.herokuapp.com"
@@ -147,32 +147,42 @@ const fs = {
       life: {
         type: 'project',
         description: 'a recreation of "Conway\'s Game of Life" simulation',
-        content: "life content",
+        content: `
+        A simple recreation of "Conway's Game of Life" with variable board size and speed.
+        `,
         github: "https://github.com/the42ndturtle/life",
         link: "https://lifesimapp.herokuapp.com",
       },
       "PTC": {
         type: 'project',
         description: 'a bare bones trading card game featuring my friend parker\'s face on every card',
-        content: 'PTC content',
+        content: `
+        A trading card game written in PHP.
+        `,
         github: "https://github.com/the42ndturtle/PTC"
       },
       chat: {
         type: 'project',
         description: 'a demo chat program featuring emotes',
-        content: 'patkerchat content',
+        content: `
+        A simple chat application made using websockets.
+        `,
         github: 'https://github.com/the42ndturtle/PatkerChat'
       },
       'TurtleIsleRPG': {
         type: 'project',
         description: 'an unfinished RPG made with a friend',
-        content: "turtle isle rpg content",
+        content: `
+        A simple RPG parody game of a project I made a very long time ago called Turtle Isle.
+        `,
         github: "https://github.com/the42ndturtle/TurtleIsleRPG"
       },
       'SpanishStudier': {
         type: 'project',
         description: 'a simple flash card app with voice detection for practicing Spanish',
-        content: 'spanish studier content',
+        content: `
+        A flash card application with voice detection written in Python as a freshman Spanish project.
+        `,
         github: "https://github.com/the42ndturtle/SpanishStudier"
       },
 
